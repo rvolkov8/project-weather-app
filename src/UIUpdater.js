@@ -1,7 +1,9 @@
 import dateFactory from './date';
 import weatherDataProcessorFactory from './weatherDataProcessor';
+import loadingIndicatorFactory from './loadingIndicator';
 
 export default function UIUpdaterFactory() {
+  const loadingIndicator = loadingIndicatorFactory();
   const dateObj = dateFactory();
   const weatherDataProcessor = weatherDataProcessorFactory();
 
@@ -23,6 +25,7 @@ export default function UIUpdaterFactory() {
   };
 
   const updateWeather = async () => {
+    loadingIndicator.show();
     date.textContent = dateObj.getFormattedDate();
     locationPlace.textContent = await weatherDataProcessor.getLocation();
     temperatureNumber.textContent =
@@ -34,6 +37,7 @@ export default function UIUpdaterFactory() {
       await weatherDataProcessor.getFeelsLikeCelsius();
     humidityPercent.textContent = await weatherDataProcessor.getHumidity();
     windSpeed.textContent = await weatherDataProcessor.getWindSpeedKph();
+    loadingIndicator.hide();
     clearUserInput();
   };
 
