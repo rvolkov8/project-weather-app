@@ -1,0 +1,94 @@
+.right-part {
+  flex: 1;
+  border-radius: 24px;
+  padding: 25px 35px;
+
+  background-color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 40px;
+
+  cursor: default;
+}
+
+.date {
+  font-weight: 700;
+  font-size: 2.1rem;
+}
+
+.temperature-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.temperature-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.temperature-number {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.weather-condition {
+  font-weight: 300;
+  font-size: 2.2rem;
+}
+
+.weather-icon {
+  height: 120px;
+  width: 120px;
+  background-color: red;
+}
+
+.additional-weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.additional-info-item {
+  display: flex;
+  align-items: center;
+}
+
+.additional-info-icon {
+  height: 25px;
+  width: 25px;
+  background-color: red;
+
+  margin-right: 10px;
+}
+
+.real-feel-icon {
+  background: url(../assets/icons/realfeel-icon.svg) no-repeat;
+  background-position: left;
+  background-size: cover;
+}
+
+.humidity-icon {
+  background: url(../assets/icons/humidity-icon.svg) no-repeat;
+  background-position: left;
+  background-size: cover;
+}
+
+.wind-icon {
+  background: url(../assets/icons/wind-speed-icon.svg) no-repeat;
+  background-position: left;
+  background-size: cover;
+}
+
+.additional-info-text,
+.additional-info-number {
+  color: var(--dark-gray);
+}
+
+.additional-info-text {
+  margin-right: 5px;
+}
