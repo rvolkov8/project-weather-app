@@ -6,7 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
 
-    <script src="main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="main-container">
+      <div class="left-part">
+        <div class="upper-section">
+          <div class="logo">forecast</div>
+          <div class="location-container">
+            <div class="location-icon"></div>
+            <div class="location-info-container">
+              <div class="location-text">Current location</div>
+              <div class="location-place">Sofia, Bulgaria</div>
+            </div>
+          </div>
+        </div>
+        <div class="search-section">
+          <div class="search-text">The Only Weather Forecast You Need</div>
+          <div class="line"></div>
+          <div class="search-input-container">
+            <input type="search" id="search" placeholder="Enter location" />
+            <div class="search-icon"></div>
+          </div>
+        </div>
+      </div>
+      <div class="right-part">
+        <div class="date">28 May 2022</div>
+        <div class="temperature-container">
+          <div class="temperature-info-container">
+            <div class="temperature-number">25°</div>
+            <div class="weather-condition">Sunny</div>
+          </div>
+          <div class="weather-icon"></div>
+        </div>
+        <div class="additional-weather-info">
+          <div class="real-feel additional-info-item">
+            <div class="real-feel-icon additional-info-icon"></div>
+            <div class="real-feel-text additional-info-text">RealFeel:</div>
+            <div class="real-feel-temperature additional-info-number">29°</div>
+          </div>
+          <div class="humidity additional-info-item">
+            <div class="humidity-icon additional-info-icon"></div>
+            <div class="humidity-text additional-info-text">Humidity:</div>
+            <div class="humidity-percent additional-info-number">58%</div>
+          </div>
+          <div class="wind additional-info-item">
+            <div class="wind-icon additional-info-icon"></div>
+            <div class="wind-speed-text additional-info-text">Wind speed:</div>
+            <div class="wind-speed additional-info-number">29 kph</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
