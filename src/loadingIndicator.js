@@ -6,6 +6,7 @@ export default function loadingIndicatorFactory() {
   const additionalWeatherInfo = document.querySelector(
     '.additional-weather-info'
   );
+  const toggleButton = document.querySelector('.toggle-button');
 
   const show = () => {
     locationPlace.textContent = 'Loading...';
@@ -13,12 +14,14 @@ export default function loadingIndicatorFactory() {
     date.style.display = 'none';
     temperatureContainer.style.display = 'none';
     additionalWeatherInfo.style.display = 'none';
+    toggleButton.style.display = 'none';
   };
   const hide = () => {
     spin.style.display = 'none';
     date.style.display = 'block';
     temperatureContainer.style.display = 'flex';
     additionalWeatherInfo.style.display = 'flex';
+    toggleButton.style.display = 'flex';
   };
 
   return { show, hide };

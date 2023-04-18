@@ -4,13 +4,12 @@ export default function weatherDataProcessorFactory() {
   const API_URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=`;
   const searchInputElement = document.querySelector('#search');
 
-  if (searchInputElement.value === '') {
-    searchInputElement.value = DEFAULT_CITY;
-  }
-
   // eslint-disable-next-line consistent-return
   const getWeatherData = async () => {
     try {
+      if (searchInputElement.value === '') {
+        searchInputElement.value = DEFAULT_CITY;
+      }
       const response = await fetch(`${API_URL}${searchInputElement.value}`, {
         mode: 'cors',
       });
@@ -40,6 +39,13 @@ export default function weatherDataProcessorFactory() {
     return formattedTemperature;
   };
 
+  const getTemperatureFahrenheit = async () => {
+    const weatherData = await getWeatherData();
+    const temperature = weatherData.current.temp_f;
+    const formattedTemperature = `${temperature}°`;
+    return formattedTemperature;
+  };
+
   const getWeatherCondition = async () => {
     const weatherData = await getWeatherData();
     const condition = weatherData.current.condition.text;
@@ -55,6 +61,13 @@ export default function weatherDataProcessorFactory() {
   const getFeelsLikeCelsius = async () => {
     const weatherData = await getWeatherData();
     const feelsLike = weatherData.current.feelslike_c;
+    const formattedFeelsLike = `${feelsLike}°`;
+    return formattedFeelsLike;
+  };
+
+  const getFeelsLikeFahrenheit = async () => {
+    const weatherData = await getWeatherData();
+    const feelsLike = weatherData.current.feelslike_f;
     const formattedFeelsLike = `${feelsLike}°`;
     return formattedFeelsLike;
   };
@@ -76,9 +89,11 @@ export default function weatherDataProcessorFactory() {
   return {
     getLocation,
     getTemperatureCelsius,
+    getTemperatureFahrenheit,
     getWeatherCondition,
     getWeatherIcon,
     getFeelsLikeCelsius,
+    getFeelsLikeFahrenheit,
     getHumidity,
     getWindSpeedKph,
   };
